@@ -27,3 +27,6 @@ Elevator pitch (11:46)
 Meaning: A brief, persuasive speech that you can deliver in a short amount of time, like an elevator ride. It's used to quickly and effectively present an idea or introduce yourself.
 Example from video: "try to think of elevator pitch versions of your most frequently received questions"
 Example: She perfected her elevator pitch for her new business idea.
+
+
+#i am not able to study today

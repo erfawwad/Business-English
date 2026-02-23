@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap to C1 English Mastery</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* Custom Chart Container Styling as per requirements */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        /* Custom Scrollbar for a polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2563EB; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1D4ED8; 
+        }
+
+        /* Timeline vertical line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 4px;
+            background: #E5E7EB;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+    <!-- 
+        Palette: Energetic & Playful (Blue & Amber focus)
+        Primary: Blue-600 (#2563EB)
+        Secondary: Amber-500 (#F59E0B)
+        Background: Slate-50 (#F8FAFC)
+        Text: Slate-800 (#1E293B)
+    -->
+    <!-- 
+        Narrative Plan:
+        1. Introduction: Hook the user with the goal (C1 fluency).
+        2. Skill Analysis: Radar chart showing the gap between B2 and C1.
+        3. The Strategy: Doughnut chart showing the shift from Input to Output.
+        4. The Roadmap (Main Content): Month-by-month breakdown with specific tasks.
+        5. Vocabulary Growth: Line chart showing the curve of word acquisition.
+        6. Toolkit: Resources and Daily Routine.
+        
+        NO SVG used. NO Mermaid JS used. All diagrams are HTML/CSS or Chart.js.
+    -->
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-blue-600 text-white py-12 px-4 shadow-lg mb-8">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">Project C1: The 1-Year English Mastery Roadmap</h1>
+            <p class="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">A strategic, data-driven guide to transforming your English from "Intermediate" to "Advanced Professional" in 12 months.</p>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
+
+        <!-- Intro Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl shadow-md p-8 border-l-8 border-amber-500">
+                <h2 class="text-2xl font-bold mb-4 text-blue-800">Why C1 Matters</h2>
+                <p class="mb-4 text-slate-600">Reaching the C1 "Advanced" level indicates you can use language flexibly and effectively for social, academic, and professional purposes. It is often the threshold for university entry and high-level corporate jobs.</p>
+                <div class="flex items-center space-x-4 mt-6">
+                    <div class="text-4xl">🚀</div>
+                    <div>
+                        <p class="font-bold text-lg">Goal:</p>
+                        <p class="text-sm text-slate-500">Professional Fluency & Nuance</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4 mt-4">
+                    <div class="text-4xl">⏳</div>
+                    <div>
+                        <p class="font-bold text-lg">Timeline:</p>
+                        <p class="text-sm text-slate-500">12 Months (Approx. 600-800 Guided Hours)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4 text-center text-slate-700">The Proficiency Gap: B2 vs. C1</h3>
+                <p class="text-sm text-center text-slate-500 mb-2">Visualizing the required jump in nuance, vocabulary, and speed.</p>
+                <div class="chart-container">
+                    <canvas id="radarSkillGap"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Strategy Section: The Input/Output Ratio -->
+        <section class="mb-16">
+            <div class="bg-white rounded-xl shadow-md p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-blue-800">The "Input Hypothesis" Strategy</h2>
+                        <p class="mb-4">You cannot output what you haven't inputted. The early stages of this roadmap focus heavily on <strong>Passive Immersion</strong> (Listening/Reading) to build a reservoir of language. As the year progresses, the focus shifts to <strong>Active Production</strong> (Speaking/Writing).</p>
+                        <ul class="space-y-2 mt-4">
+                            <li class="flex items-start"><span class="text-amber-500 mr-2">◼</span> <strong>Months 1-4:</strong> 70% Input / 30% Output</li>
+                            <li class="flex items-start"><span class="text-blue-500 mr-2">◼</span> <strong>Months 5-8:</strong> 50% Input / 50% Output</li>
+                            <li class="flex items-start"><span class="text-green-500 mr-2">◼</span> <strong>Months 9-12:</strong> 30% Input / 70% Output</li>
+                        </ul>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="doughnutRatio"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Timeline Section -->
+        <section class="mb-16 relative">
+            <h2 class="text-3xl font-bold text-center mb-12 text-slate-800">📅 Month-by-Month Action Plan</h2>
+            
+            <div class="relative timeline-line space-y-12">
+                
+                <!-- Quarter 1 -->
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-center md:justify-between">
+                        <div class="hidden md:block w-5/12 text-right pr-8">
+                            <h3 class="text-2xl font-bold text-blue-600">Quarter 1: The Foundation</h3>
+                            <p class="text-gray-500">Months 1-3 • Building Habits & Input</p>
+                        </div>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-600 border-4 border-white shadow flex items-center justify-center text-white font-bold">1</div>
+                        <div class="w-full md:w-5/12 bg-white p-6 rounded-lg shadow-md md:ml-8 mt-4 md:mt-0 border-t-4 border-blue-600">
+                            <h4 class="font-bold text-lg mb-2">Focus: Extensive Listening & Vocab Mining</h4>
+                            <ul class="list-none space-y-2 text-sm">
+                                <li>🎧 <strong>Goal:</strong> Listen to podcasts for 30 mins/day (native speed).</li>
+                                <li>📚 <strong>Vocab:</strong> Learn top 1000 most common collocations.</li>
+                                <li>🗣️ <strong>Speaking:</strong> Shadowing technique (mimicking audio) for 10 mins/day.</li>
+                            </ul>
+                            <div class="mt-4 bg-blue-50 p-3 rounded text-xs text-blue-800">
+                                <strong>Key Phrase:</strong> "To get the ball rolling" (To start something).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarter 2 -->
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row-reverse items-center md:justify-between">
+                        <div class="hidden md:block w-5/12 text-left pl-8">
+                            <h3 class="text-2xl font-bold text-amber-500">Quarter 2: Activation</h3>
+                            <p class="text-gray-500">Months 4-6 • Breaking the Silence</p>
+                        </div>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-amber-500 border-4 border-white shadow flex items-center justify-center text-white font-bold">2</div>
+                        <div class="w-full md:w-5/12 bg-white p-6 rounded-lg shadow-md md:mr-8 mt-4 md:mt-0 border-t-4 border-amber-500">
+                            <h4 class="font-bold text-lg mb-2">Focus: Speaking & Phrasal Verbs</h4>
+                            <ul class="list-none space-y-2 text-sm">
+                                <li>🗣️ <strong>Goal:</strong> 2x Weekly conversation exchange (iTalki/HelloTalk).</li>
+                                <li>📖 <strong>Reading:</strong> Read 2 contemporary novels (B2/C1 level).</li>
+                                <li>📝 <strong>Writing:</strong> Write summaries of articles you read (150 words).</li>
+                            </ul>
+                            <div class="mt-4 bg-amber-50 p-3 rounded text-xs text-amber-900">
+                                <strong>Phrasal Verb:</strong> "Brush up on" (To improve/refresh a skill).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarter 3 -->
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row items-center md:justify-between">
+                        <div class="hidden md:block w-5/12 text-right pr-8">
+                            <h3 class="text-2xl font-bold text-indigo-600">Quarter 3: Complexity</h3>
+                            <p class="text-gray-500">Months 7-9 • Nuance & Style</p>
+                        </div>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-600 border-4 border-white shadow flex items-center justify-center text-white font-bold">3</div>
+                        <div class="w-full md:w-5/12 bg-white p-6 rounded-lg shadow-md md:ml-8 mt-4 md:mt-0 border-t-4 border-indigo-600">
+                            <h4 class="font-bold text-lg mb-2">Focus: Advanced Grammar & Debate</h4>
+                            <ul class="list-none space-y-2 text-sm">
+                                <li>🧠 <strong>Grammar:</strong> Master inversions, conditionals, and passive voice.</li>
+                                <li>🗞️ <strong>Reading:</strong> Read The Economist/NYT (Complex sentence structures).</li>
+                                <li>🗣️ <strong>Speaking:</strong> Record yourself explaining complex topics.</li>
+                            </ul>
+                            <div class="mt-4 bg-indigo-50 p-3 rounded text-xs text-indigo-900">
+                                <strong>Idiom:</strong> "To play devil's advocate" (Argue against a norm).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarter 4 -->
+                <div class="relative z-10">
+                    <div class="flex flex-col md:flex-row-reverse items-center md:justify-between">
+                        <div class="hidden md:block w-5/12 text-left pl-8">
+                            <h3 class="text-2xl font-bold text-green-600">Quarter 4: Mastery</h3>
+                            <p class="text-gray-500">Months 10-12 • Polish & Professionalism</p>
+                        </div>
+                        <div class="flex-shrink-0 w-10 h-10 rounded-full bg-green-600 border-4 border-white shadow flex items-center justify-center text-white font-bold">4</div>
+                        <div class="w-full md:w-5/12 bg-white p-6 rounded-lg shadow-md md:mr-8 mt-4 md:mt-0 border-t-4 border-green-600">
+                            <h4 class="font-bold text-lg mb-2">Focus: Fluency & Speed</h4>
+                            <ul class="list-none space-y-2 text-sm">
+                                <li>🚀 <strong>Goal:</strong> Watch movies without subtitles.</li>
+                                <li>📝 <strong>Writing:</strong> Write full essays/reports (500+ words).</li>
+                                <li>🎯 <strong>Review:</strong> Full grammar review and mock C1 exam tests.</li>
+                            </ul>
+                            <div class="mt-4 bg-green-50 p-3 rounded text-xs text-green-900">
+                                <strong>Idiom:</strong> "The best of both worlds" (All advantages).
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Vocabulary Growth Visual -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4 text-slate-700">Vocabulary Acquisition Curve</h3>
+                <p class="text-sm text-slate-500 mb-4">To reach C1, you need approximately 8,000 active word families. This chart shows the necessary acceleration.</p>
+                <div class="chart-container">
+                    <canvas id="lineVocab"></canvas>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4 text-slate-700">Essential C1 Vocabulary Toolkit</h3>
+                <div class="overflow-y-auto h-[300px] pr-2">
+                    <!-- Idioms -->
+                    <div class="mb-6">
+                        <h4 class="text-amber-600 font-bold border-b border-amber-200 pb-1 mb-2">5 High-Frequency C1 Idioms</h4>
+                        <ul class="text-sm space-y-3">
+                            <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Sit on the fence"</span><br>
+                                <span class="text-slate-500">Meaning: To delay making a decision.</span>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Cut corners"</span><br>
+                                <span class="text-slate-500">Meaning: To do something poorly to save time/money.</span>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Beat around the bush"</span><br>
+                                <span class="text-slate-500">Meaning: Avoiding the main topic.</span>
+                            </li>
+                             <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Call it a day"</span><br>
+                                <span class="text-slate-500">Meaning: Stop working on something.</span>
+                            </li>
+                             <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"A blessing in disguise"</span><br>
+                                <span class="text-slate-500">Meaning: A good thing that seemed bad at first.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Phrasal Verbs -->
+                    <div>
+                        <h4 class="text-blue-600 font-bold border-b border-blue-200 pb-1 mb-2">5 Crucial Phrasal Verbs</h4>
+                        <ul class="text-sm space-y-3">
+                            <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Figure out"</span><br>
+                                <span class="text-slate-500">Meaning: To understand or solve something.</span>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Put off"</span><br>
+                                <span class="text-slate-500">Meaning: To postpone/delay.</span>
+                            </li>
+                            <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Look into"</span><br>
+                                <span class="text-slate-500">Meaning: To investigate.</span>
+                            </li>
+                             <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Bring up"</span><br>
+                                <span class="text-slate-500">Meaning: Mention a topic.</span>
+                            </li>
+                             <li class="bg-slate-50 p-2 rounded">
+                                <span class="font-bold text-slate-800">"Get across"</span><br>
+                                <span class="text-slate-500">Meaning: Successfully communicate an idea.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources & Daily Routine -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-blue-500">
+                <h3 class="font-bold text-lg mb-4 text-center">🎧 Listening Resources</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="flex items-center"><span class="mr-2">🔹</span> <strong>BBC 6 Minute English:</strong> Great for vocab.</li>
+                    <li class="flex items-center"><span class="mr-2">🔹</span> <strong>TED Talks:</strong> Academic/Presentation style.</li>
+                    <li class="flex items-center"><span class="mr-2">🔹</span> <strong>Luke's English Podcast:</strong> Long-form natural speech.</li>
+                    <li class="flex items-center"><span class="mr-2">🔹</span> <strong>Audible:</strong> Listen to audiobooks while commuting.</li>
+                </ul>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-amber-500">
+                <h3 class="font-bold text-lg mb-4 text-center">📚 Reading & Writing</h3>
+                <ul class="text-sm space-y-3">
+                    <li class="flex items-center"><span class="mr-2">🔸</span> <strong>The Guardian/NYT:</strong> High-level journalism.</li>
+                    <li class="flex items-center"><span class="mr-2">🔸</span> <strong>ReadTheory.org:</strong> Adaptive reading comprehension.</li>
+                    <li class="flex items-center"><span class="mr-2">🔸</span> <strong>Grammarly (Free):</strong> Analyze your writing errors.</li>
+                    <li class="flex items-center"><span class="mr-2">🔸</span> <strong>Medium.com:</strong> Read diverse topics daily.</li>
+                </ul>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-md p-6 border-t-4 border-indigo-500">
+                <h3 class="font-bold text-lg mb-4 text-center">📅 Daily Routine (1 Hour)</h3>
+                <div class="space-y-3 text-sm">
+                    <div class="flex justify-between items-center bg-gray-50 p-2 rounded">
+                        <span>☀️ Morning (15m)</span>
+                        <span class="font-bold text-indigo-600">Vocab App Review</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 p-2 rounded">
+                        <span>🚗 Commute (20m)</span>
+                        <span class="font-bold text-indigo-600">Podcast Listening</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-gray-50 p-2 rounded">
+                        <span>🌙 Evening (25m)</span>
+                        <span class="font-bold text-indigo-600">Reading & Journaling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Encouragement -->
+        <footer class="bg-slate-800 text-slate-300 py-8 rounded-xl text-center">
+            <h3 class="text-2xl font-bold text-white mb-2">Consistency > Intensity</h3>
+            <p class="max-w-2xl mx-auto">Reaching C1 isn't about studying for 5 hours once a week. It's about studying for 30-60 minutes <strong>every single day</strong>. Stick to the roadmap, trust the process, and you will get there.</p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        // Label Wrapping Utility function (Required)
+        function wrapLabel(label, maxChars = 16) {
+            if (label.length <= maxChars) return label;
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= maxChars) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // Shared Tooltip Config (Required)
+        const commonTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // 1. Radar Chart: Skill Gap Analysis
+        const ctxRadar = document.getElementById('radarSkillGap').getContext('2d');
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: ['Vocabulary Range', 'Grammar Accuracy', 'Listening Speed', 'Spoken Fluency', 'Reading Complexity', 'Idiomatic Usage'].map(l => wrapLabel(l)),
+                datasets: [{
+                    label: 'Current B2 Level',
+                    data: [60, 65, 70, 55, 65, 40],
+                    fill: true,
+                    backgroundColor: 'rgba(148, 163, 184, 0.2)', // Slate
+                    borderColor: 'rgb(148, 163, 184)',
+                    pointBackgroundColor: 'rgb(148, 163, 184)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(148, 163, 184)'
+                }, {
+                    label: 'Target C1 Level',
+                    data: [90, 90, 95, 85, 90, 85],
+                    fill: true,
+                    backgroundColor: 'rgba(37, 99, 235, 0.2)', // Blue
+                    borderColor: 'rgb(37, 99, 235)',
+                    pointBackgroundColor: 'rgb(37, 99, 235)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgb(37, 99, 235)'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                elements: { line: { borderWidth: 3 } },
+                scales: {
+                    r: {
+                        angleLines: { display: true },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                        ticks: { display: false } // clean look
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltipConfig,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+
+        // 2. Doughnut Chart: Input vs Output
+        const ctxDoughnut = document.getElementById('doughnutRatio').getContext('2d');
+        new Chart(ctxDoughnut, {
+            type: 'doughnut',
+            data: {
+                labels: ['Passive Input (Reading/Listening)', 'Active Output (Speaking/Writing)'].map(l => wrapLabel(l, 20)),
+                datasets: [{
+                    data: [65, 35], // Yearly average
+                    backgroundColor: [
+                        '#F59E0B', // Amber
+                        '#2563EB'  // Blue
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: commonTooltipConfig,
+                    legend: { position: 'bottom' },
+                    title: {
+                        display: true,
+                        text: 'Yearly Effort Distribution',
+                        padding: { bottom: 10 }
+                    }
+                }
+            }
+        });
+
+        // 3. Line Chart: Vocabulary Growth
+        const ctxLine = document.getElementById('lineVocab').getContext('2d');
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['Start', 'Month 3', 'Month 6', 'Month 9', 'Month 12 (C1)'],
+                datasets: [{
+                    label: 'Active Vocabulary Size (Words)',
+                    data: [3500, 4500, 5800, 7000, 8500],
+                    fill: true,
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    borderColor: '#2563EB',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        title: { display: true, text: 'Word Count' }
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltipConfig,
+                    legend: { display: false },
+                    title: { display: true, text: 'Target Vocabulary Trajectory' }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>

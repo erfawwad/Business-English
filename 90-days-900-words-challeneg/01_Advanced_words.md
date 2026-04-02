@@ -80,3 +80,4 @@ Vicarious (10:19)
 
 English Meaning: Experienced in the imagination through the feelings or actions of another person.
 Urdu Meaning: ذاتی نہیں / پردے کے پیچھے سے
+#
